@@ -1,0 +1,507 @@
+/* Add to your style.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+}
+
+.landing-page {
+  text-align: center;
+  padding: 50px;
+  margin-top: 50px;
+}
+
+.team-logo {
+  max-width: 150px;
+  margin-bottom: 20px;
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.hero-button:hover {
+  background-color: #0056b3;
+}
+
+/* Add to your style.css */
+
+/* General body styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Container for the survey detail */
+.survey-container {
+  background: #fff;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+}
+
+/* Survey title and description styling */
+.survey-title,
+.survey-description {
+  margin-bottom: 20px;
+}
+
+/* Styling for each question */
+.question {
+  margin-bottom: 15px;
+}
+
+/* Question text styling */
+.question h3 {
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+/* Options for radio buttons */
+.option {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.option input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+}
+
+/* On mouse-over, add a grey background color */
+.option:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.option input:checked ~ .checkmark {
+  background-color: #007bff;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.option input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.option .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+/* Style the submit button */
+button[type="submit"] {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #218838;
+}
+
+/* Responsive media query */
+@media (max-width: 768px) {
+  .survey-container {
+    width: 95%;
+    margin: 20px;
+  }
+}
+
+/* Add to your style.css */
+
+/* General form styling */
+.form-container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+/* Styling the heading */
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Styling the form labels and input fields */
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Styling for the question container */
+#questions-container {
+  margin-bottom: 20px;
+}
+
+/* Style for each question block */
+.question-block {
+  border: 1px solid #eaeaea;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+/* Style for the add question/options button */
+.add-question,
+.add-option {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px; /* Increase padding for a larger button */
+  text-align: center;
+  display: inline-block;
+  font-size: 16px; /* Increase font size for better readability */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease; /* Add transition for smooth color change */
+}
+
+.add-question:hover,
+.add-option:hover {
+  background-color: #0056b3;
+}
+
+/* Submit button styling */
+button[type="submit"] {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #218838;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .form-container {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+/* Add to your style.css */
+
+/* Style for the survey list container */
+.survey-list {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+.survey-item {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.survey-item a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.survey-item form {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.button-inline {
+  border: none;
+  background-color: transparent;
+  color: #dc3545;
+  cursor: pointer;
+  padding: 0;
+}
+
+.button-inline:hover {
+  text-decoration: underline;
+}
+
+/* Style for the 'Create New Survey' link */
+.create-survey-link {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  background-color: #28a745;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
+.create-survey-link:hover {
+  background-color: #218838;
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 768px) {
+  .survey-list {
+    width: 90%;
+  }
+}
+
+/* Style for the edit-survey form */
+.edit-survey-form {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.edit-survey-form h2 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.edit-survey-form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.edit-survey-form input[type="text"],
+.edit-survey-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.edit-survey-form .question {
+  margin-bottom: 10px;
+  padding: 10px;
+  background: #f8f8f8;
+  border: 1px solid #e7e7e7;
+  border-radius: 4px;
+}
+
+.edit-survey-form .options-container {
+  margin-top: 5px;
+}
+
+.edit-survey-form .add-option {
+  background: #28a745;
+  color: white;
+  padding: 6px 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.delete-question {
+  background: #bb2828;
+  color: white;
+  padding: 7px 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.delete-question:hover {
+  background: #b32929;
+}
+
+.edit-survey-form .add-option:hover {
+  background: #218838;
+}
+
+.edit-survey-form button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.edit-survey-form button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .edit-survey-form {
+    width: 90%;
+    padding: 10px;
+  }
+}
+
+/* Header styles */
+.header-main {
+  background-color: #007bff; /* Blue shade */
+  color: #ffffff; /* White text color */
+  padding: 10px 0; /* Vertical padding with no horizontal padding */
+}
+
+.header-nav {
+  display: flex;
+  justify-content: space-between; /* Distributes space between nav items */
+  align-items: center; /* Vertically center items */
+  padding: 0 30px; /* Horizontal padding */
+}
+
+.header-nav ul {
+  list-style-type: none; /* Removes bullet points */
+  padding-left: 0; /* Removes padding */
+  display: flex;
+  margin: 0; /* Removes default margin */
+}
+
+.header-nav li {
+  padding: 0 15px; /* Space between nav items */
+}
+
+.header-nav a {
+  color: #ffffff; /* Ensures text is white */
+  text-decoration: none; /* Removes underline */
+  font-weight: bold; /* Makes font bold */
+}
+
+.header-nav a:hover {
+  text-decoration: underline; /* Underlines text on hover */
+}
+
+.header-logo {
+  display: flex;
+  align-items: center; /* Align logo vertically */
+}
+
+.header-logo img {
+  max-width: 100px; /* Sets a maximum width for the logo */
+  height: auto; /* Keeps the aspect ratio of the image */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header-nav {
+    flex-direction: column; /* Stacks items vertically on small screens */
+    padding: 0;
+  }
+
+  .header-nav ul {
+    flex-direction: column; /* Aligns links vertically */
+  }
+
+  .header-nav li {
+    padding: 10px 0; /* Adds vertical space between links */
+  }
+
+  .header-logo img {
+    max-width: 80px; /* Smaller logo on small screens */
+  }
+}
+
+/* Footer styles */
+.footer-main {
+  background-color: #343a40; /* Dark gray background */
+  color: #ffffff; /* White text color */
+  text-align: center; /* Center-align the text */
+  padding: 20px 10px; /* Padding inside the footer */
+  position: relative; /* Position relative for absolute positioning inside elements */
+  bottom: 0; /* Stick to the bottom */
+  width: 100%; /* Full width */
+}
+
+.footer-content {
+  margin: 0 auto; /* Center the content if needed */
+  max-width: 1140px; /* Max width to align with the rest of the content */
+  font-size: 14px; /* Font size for the text */
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    font-size: 12px; /* Smaller font size on smaller screens */
+  }
+}
+
+.survey-quote {
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5em; /* Adjust the size as needed */
+  color: #555; /* Adjust the color as needed */
+}
+
+.button-inline-edit {
+  margin-right: 50px;
+}

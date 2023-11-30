@@ -1,0 +1,73 @@
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to SurveyMaster</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+
+  <%- include('../partials/header') %>
+
+  <div>
+    <h2>Survey List</h2>
+    <% if (surveys.length > 0) { %>
+      <ul class="survey-list">
+        <% surveys.forEach(function(survey) { %>
+          <li class="survey-item">
+            <a href="/surveys/<%= survey._id %>"><%= survey.title %></a>
+            <form action="/surveys/<%= survey._id %>?_method=DELETE" method="POST" style="display: inline;" class="button-inline-edit">
+              <button type="submit" class="button-inline">Delete</button>
+            </form>
+            <form action="/surveys/<%= survey._id %>/edit" method="GET" style="display: inline;">
+              <button type="submit" class="button-inline">Edit</button>
+            </form>
+          </li>
+        <% }) %>
+      </ul>
+      
+    <% } else { %>
+      <p>No surveys found.</p>
+    <% } %>
+  </div>
+
+  <a href="/surveys/new" class="create-survey-link">Create New Survey</a>
+
+ <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Check if localStorage is supported
+      console.log(localStorage);
+      if (localStorage.getItem('username') || localStorage.getItem('password')) {
+        // localStorage is supported
+        // Enable the edit and delete buttons
+        enableEditAndDeleteButtons();
+      } else {
+        // localStorage is not supported
+        // Disable the edit and delete buttons
+        disableEditAndDeleteButtons();
+      }
+    });
+
+    function enableEditAndDeleteButtons() {
+      const editButtons = document.querySelectorAll('.button-inline-edit button');
+      editButtons.forEach(function(button) {
+        button.style.display = 'inline-block'; // Set the display property to 'inline-block' to show the button
+      });
+
+      const deleteButtons = document.querySelectorAll('.survey-item form button');
+      deleteButtons.forEach(function(button) {
+        button.style.display = 'inline-block'; // Set the display property to 'inline-block' to show the button
+      });
+    }
+
+    function disableEditAndDeleteButtons() {
+      const editButtons = document.querySelectorAll('.button-inline-edit button');
+      editButtons.forEach(function(button) {
+        button.style.display = 'none'; // Set the display property to 'none' to hide the button
+      });
+
+      const deleteButtons = document.querySelectorAll('.survey-item form button');
+      deleteButtons.forEach(function(button) {
+        button.style.display = 'none'; // Set the display property to 'none' to hide the button
+      });
+    }
+  </script>
+
+
+  <%- include('../partials/footer') %>

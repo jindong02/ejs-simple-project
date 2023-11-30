@@ -1,0 +1,83 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome to SurveyMaster</title>
+<link rel="stylesheet" href="/stylesheets/style.css">
+
+<%- include('../partials/header') %>
+
+<div class="edit-survey-form">
+  <h2>Edit Survey</h2>
+  <form action="/surveys/<%= survey._id %>?_method=PUT" method="post">
+    <div>
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" value="<%= survey.title %>" required>
+    </div> 
+    <div>
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" required><%= survey.description %></textarea>
+    </div>
+    <div id="questions-container">
+      <% survey.questions.forEach(function(question, questionIndex) { %>
+        <div class="question" data-question-index="<%= questionIndex %>">
+          <label for="questionText">Question:</label>
+          <input type="text" name="questions[<%= questionIndex %>][questionText]" value="<%= question.questionText %>" required>
+          <div class="options-container">
+            <% question.options.forEach(function(option, optionIndex) { %>
+              <label for="optionText">Option:</label>
+              <input type="text" name="questions[<%= questionIndex %>][options][<%= optionIndex %>][optionText]" value="<%= option.optionText %>" required>
+            <% }) %>
+            <button type="button" class="add-option">Add Option</button>
+            <input type="hidden" name="questions[<%= questionIndex %>][deleted]" value="false">
+            <button type="button" class="delete-question">Delete Question</button>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+    <button type="button" id="add-question" class="add-question">Add Question</button>
+    <button type="submit">Update Survey</button>
+  </form>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('add-question').addEventListener('click', function() {
+      var container = document.getElementById('questions-container');
+      var questionIndex = container.getElementsByClassName('question').length;
+      var questionDiv = document.createElement('div');
+      questionDiv.className = 'question';
+      questionDiv.dataset.questionIndex = questionIndex;
+      questionDiv.innerHTML = `
+        <label for="questionText">Question:</label>
+        <input type="text" name="questions[${questionIndex}][questionText]" required>
+        <div class="options-container">
+          <label>Options:</label>
+          <input type="text" name="questions[${questionIndex}][options][0][optionText]" required>
+          <button type="button" class="add-option">Add Option</button>
+          <button type="button" class="delete-question">Delete Question</button>
+        </div>
+      `;
+      container.appendChild(questionDiv);
+    });
+  
+    // Handle click events on options-container for dynamic elements
+    document.getElementById('questions-container').addEventListener('click', function(event) {
+      if (event.target.classList.contains('add-option')) {
+        var optionsContainer = event.target.parentNode;
+        var questionIndex = optionsContainer.closest('.question').dataset.questionIndex;
+        var optionIndex = optionsContainer.querySelectorAll('input[type=text]').length;
+        var input = document.createElement('input');
+        input.type = 'text';
+        input.name = `questions[${questionIndex}][options][${optionIndex}][optionText]`;
+        input.required = true;
+        optionsContainer.insertBefore(input, event.target);
+      } else if (event.target.classList.contains('delete-question')) {
+        if(confirm("Are you sure you want to delete this question?")) {
+          var questionDiv = event.target.closest('.question');
+          questionDiv.remove();
+        }
+      }
+    });
+  });
+  </script>
+  
+
+  <%- include('../partials/footer') %>

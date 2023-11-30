@@ -1,0 +1,43 @@
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to SurveyMaster</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <header class="header-main">
+    <nav class="header-nav">
+      <div class="header-logo">
+        <img src="/images/teamlogo.png" alt="Team Logo">
+      </div>
+      <ul>
+        <li><a href="/" class="nav-item">Home</a></li>
+        <li><a href="/surveys/new" class="nav-item">Create Survey</a></li>
+        <li><a href="/surveys" class="nav-item">Survey List</a></li>
+        <li id="login-link"><a href="/login" class="nav-item">Login</a></li>
+        <li id="logout-link"><a href="/logout" onclick="logout()" class="nav-item">Logout</a></li>
+        <!-- Add more navigation items as needed -->
+      </ul>
+    </nav>
+  </header>
+  <!-- The rest of your page's content will follow here -->
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const loginLink = document.getElementById('login-link');
+      const logoutLink = document.getElementById('logout-link');
+      const username = localStorage.getItem('username');
+      const password = localStorage.getItem('password');
+
+      if (username && password) {
+        // Hide the login link and show the logout link if the username and password exist in local storage
+        loginLink.style.display = 'none';
+        logoutLink.style.display = 'block';
+      } else {
+        // Show the login link and hide the logout link if the username and password do not exist in local storage
+        loginLink.style.display = 'block';
+        logoutLink.style.display = 'none';
+      }
+    });
+
+    function logout() {
+      localStorage.clear();
+    }
+  </script>
